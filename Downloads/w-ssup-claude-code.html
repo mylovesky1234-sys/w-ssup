@@ -1352,7 +1352,7 @@ function showBld(key){
   const b=BLD[key];if(!b)return;
   const pin=BLD_PIN[key]||{x:50,y:50};
   const rect=BLD_RECT[key]||null;
-  const photos=BLD_PHOTOS[key]||[];
+  const photos=[];
   const mapSrc=AERIAL_SRC;
 
   const pinOverlay=`
