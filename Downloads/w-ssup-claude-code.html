@@ -1354,6 +1354,8 @@ function showBld(key){
   const rect=BLD_RECT[key]||null;
   const photos=[];
   const mapSrc=AERIAL_SRC;
+  const _modal=document.getElementById('bld-content').closest('.modal');
+  const _hPad=_modal?parseInt(getComputedStyle(_modal).paddingLeft)||18:18;
 
   const pinOverlay=`
     <div style="position:absolute;left:${pin.x}%;top:${pin.y}%;transform:translate(-50%,-50%);pointer-events:none;z-index:4;">
@@ -1374,7 +1376,7 @@ function showBld(key){
         linear-gradient(90deg,${b.c} 55%,transparent 0),
         linear-gradient(0deg,${b.c} 55%,transparent 0),
         linear-gradient(0deg,${b.c} 55%,transparent 0);
-      background-size:10px 2.5px,10px 2.5px,2.5px 10px,2.5px 10px;
+      background-size:12px 4px,12px 4px,4px 12px,4px 12px;
       background-position:0 0,0 100%,0 0,100% 0;
       background-repeat:repeat-x,repeat-x,repeat-y,repeat-y;
       background-color:${b.c}18;
@@ -1383,8 +1385,8 @@ function showBld(key){
     </div>` : '';
 
   const mapSection=mapSrc?`
-    <div style="border-radius:14px;overflow:hidden;margin-bottom:16px;
-      box-shadow:0 4px 20px rgba(0,0,0,.18);border:2px solid ${b.c}40;">
+    <div style="margin:0 -${_hPad}px 16px;overflow:hidden;
+      box-shadow:0 6px 24px rgba(0,0,0,.22);border-top:2.5px solid ${b.c}70;border-bottom:2.5px solid ${b.c}70;">
       <div style="position:relative;">
         <img src="${mapSrc}" style="width:100%;height:auto;display:block;">
         ${boxDiv}
